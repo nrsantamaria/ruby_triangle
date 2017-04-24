@@ -11,4 +11,7 @@ describe('Triangle#type') do
   it('will return the triangle type of equilateral if the given triangle objects side properties are all the same') do
     expect(Triangle.new(3,3,3).type()).to(eq('Equilateral'))
   end
+  it("it will return 'not a triangle' if the given object's sides do not make a triangle (the sum of any two sides of the triangle is less than the third side)") do
+    expect(Triangle.new(2,2,8).type).to(eq("Not a triangle"))
+  end
 end
