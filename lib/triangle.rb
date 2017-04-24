@@ -1,16 +1,14 @@
 class Triangle
   define_method(:initialize) do |side1, side2, side3|
-    @side1 = side1.to_i
-    @side2 = side2.to_i
-    @side3 = side3.to_i
+    @sides = [side1, side2, side3].map{|s| s.to_i}.sort
   end
 
   define_method(:type) do
-    if @side1 == @side2 && @side2 == @side3
+    if @sides.uniq.length == 1
       "Equilateral"
-    elsif @side1 + @side2 <= @side3 || @side1 + @side3 <= @side2 || @side3 + @side2 <= @side1
+    elsif @sides[0] + @sides[1] <= @sides[2]
       "Not a triangle"
-    elsif @side1 == @side2 || @side2 == @side3 || @side1 == @side3
+    elsif @sides.uniq.length == 2
       "Isosceles"
     else
       "Scalene"
