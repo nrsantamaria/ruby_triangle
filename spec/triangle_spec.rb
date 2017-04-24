@@ -17,4 +17,7 @@ describe('Triangle#type') do
   it('will return the triangle type of isosceles if two of the triangle objects side properties are the same') do
     expect(Triangle.new(2,2,3).type).to(eq("Isosceles"))
   end
+  it('will return the triangle type of scalene if no sides are the same') do
+    expect(Triangle.new(3,4,5).type).to(eq("Scalene"))
+  end
 end
