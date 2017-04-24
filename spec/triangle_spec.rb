@@ -8,5 +8,7 @@ describe('Triangle#initialize') do
 end
 
 describe('Triangle#type') do
-
+  it('will return the triangle type of equilateral if the given triangle objects side properties are all the same') do
+    expect(Triangle.new(3,3,3).type()).to(eq('Equilateral'))
+  end
 end
